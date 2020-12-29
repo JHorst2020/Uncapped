@@ -1,2 +1,33 @@
 
 Features List:
+
+1. Drinks CRUD
+- Beverages 
+
+2. Checkins / reviews
+- Users can create a post where they can review their beverage.
+- The user can give a star-rating (1 - 5), and add a photo via URL
+- The user is also able to include their location on the post
+
+3. Review Feed
+- Upon successful login, the user will be able to see recent reviews from others
+- BONUS: Infinite scroll 
+- BONUS: The user will be able to filter reviews of just their friends
+
+4. User Profile
+- User can include a profile photo via URL 
+- User will be able to see their total reviews (BONUS: badges, friends, unique beverages) 
+
+BONUS
+5. Friendships
+- Ability for a user to request friendship, and for the other user to either accept or reject the friendship
+- Ability to remove a friend
+
+6. Search Feature
+- Users will be able to search for other users, beverages, and venues
+
+7. Badges
+- Users will be able to achieve different badges based upon different criteria. 
+
+8. Venues
+- Users will be able to select/set their location in their post.

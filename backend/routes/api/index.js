@@ -43,4 +43,9 @@ router.use('/session', sessionRouter);
 
 router.use('/users', usersRouter);
 
+// router.get("/hello/world", function (req, res) {
+//   res.cookie("XSRF-TOKEN", req.csrfToken());
+//   res.send("Hello World!");
+// });
+
 module.exports = router;

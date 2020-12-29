@@ -1,0 +1,20 @@
+1. Home Page
+
+2. User Profile Page
+
+3. Review Feed Page 
+
+4. Beverage Review Modal
+    - Contains a text description box for the review. 255 char
+    - Slider for the stars (1 - 5)
+    - Add Location: Dropdown of the 10 closest locations. 1st being "Home" w/out address
+    - Add a photo (use a URL for now)
+
+5. Beverages List Page
+    - Lists all beverages
+    - Checkbox that brings up the modal. 
+
+6. Single Beverage Page
+    - Photo
+    - Reviews of that beverage
+    - check-in box 
