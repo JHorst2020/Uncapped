@@ -1,11 +1,13 @@
 const router = require('express').Router();
 const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
-
+const scotchRouter = require('./scotch.js')
 // GET /api/set-token-cookie
 const asyncHandler = require('express-async-handler');
 const { setTokenCookie } = require('../../utils/auth.js');
 const { User } = require('../../db/models');
+
+
 router.get(
   '/set-token-cookie',
   asyncHandler(async (req, res) => {
@@ -33,16 +35,21 @@ router.get('/restore-user', restoreUser, (req, res) => {
 //   (req, res) => {
 //     return res.json(req.user);
 //   }
-// );
+// ); 
 
 router.post('/test', function (req, res) {
   res.json({ requestBody: req.body });
+  console.log("routes/api/index.js    testtesttest")
+});
+router.get("/test", function (req, res) {
+  res.json({ requestBody: req.body });
+  console.log("routes/api/index.js    testtesttest");
 });
 
 router.use('/session', sessionRouter);
 
 router.use('/users', usersRouter);
-
+router.use('/scotch', scotchRouter)
 // router.get("/hello/world", function (req, res) {
 //   res.cookie("XSRF-TOKEN", req.csrfToken());
 //   res.send("Hello World!");

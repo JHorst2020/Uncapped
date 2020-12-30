@@ -7,7 +7,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Badge.associate = function(models) {
     // associations can be defined here
-    Badge.hasMany(model.EarnedBadge, {foreignKey:"badge_id"})
+    // Badge.belongsToMany(models.User, {through: models.EarnedBadge})
+    Badge.hasMany(models.EarnedBadge, {foreignKey: "badge_id"})
   };
   return Badge;
 };
