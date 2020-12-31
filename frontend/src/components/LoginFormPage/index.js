@@ -12,7 +12,7 @@ function LoginFormPage() {
   const [errors, setErrors] = useState([]);
 
   if (sessionUser) return <Redirect to="/" />;
-
+console.log("This is the sessionActions     ",sessionActions)
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);

@@ -4,8 +4,20 @@ const bcrypt = require('bcryptjs');
 
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define(
-    'User',
+    "User",
     {
+      firstName: {
+        type: DataTypes.STRING,
+        validate: {
+          len: [3, 256],
+        },
+      },
+      lastName: {
+        type: DataTypes.STRING,
+        validate: {
+          len: [3, 256],
+        },
+      },
       username: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -13,40 +25,40 @@ module.exports = (sequelize, DataTypes) => {
           len: [3, 30],
           isNotEmail(value) {
             if (Validator.isEmail(value)) {
-              throw new Error('Cannot be an email.');
+              throw new Error("Cannot be an email.");
             }
-          }
-        }
+          },
+        },
       },
       email: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          len: [3, 256]
-        }
+          len: [3, 256],
+        },
       },
       hashedPassword: {
         type: DataTypes.STRING.BINARY,
         allowNull: false,
         validate: {
-          len: [60, 60]
-        }
-      }
+          len: [60, 60],
+        },
+      },
     },
     {
       defaultScope: {
         attributes: {
-          exclude: ['hashedPassword', 'email', 'createdAt', 'updatedAt']
-        }
+          exclude: ["hashedPassword", "email", "createdAt", "updatedAt"],
+        },
       },
       scopes: {
         currentUser: {
-          attributes: { exclude: ['hashedPassword'] }
+          attributes: { exclude: ["hashedPassword"] },
         },
         loginUser: {
-          attributes: {}
-        }
-      }
+          attributes: {},
+        },
+      },
     }
   );
   User.associate = function (models) {

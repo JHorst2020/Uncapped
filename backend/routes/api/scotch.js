@@ -5,8 +5,12 @@ const router = express.Router();
 router.get(
   "/",
   asyncHandler(async (req, res) => {
-    const wineries = await Spirit.findAll();
-    res.json(wineries);
+    const spirits = await Spirit.findAll();
+    res.json(spirits);
   })
 );
+
+
+
+
 module.exports = router;

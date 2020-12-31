@@ -1,4 +1,4 @@
-import { fetch } from './csrf.js';
+import { fetch } from './csrf.js'; 
 
 const SET_USER = 'session/setUser';
 const REMOVE_USER = 'session/removeUser';
@@ -49,6 +49,7 @@ export const logout = () => async (dispatch) => {
   dispatch(removeUser());
   return response;
 };
+
 
 const initialState = { user: null };
 

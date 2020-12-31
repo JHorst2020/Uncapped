@@ -2,6 +2,7 @@ const router = require('express').Router();
 const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
 const scotchRouter = require('./scotch.js')
+const speakeasyRouter = require('./speakeasy')
 // GET /api/set-token-cookie
 const asyncHandler = require('express-async-handler');
 const { setTokenCookie } = require('../../utils/auth.js');
@@ -50,6 +51,7 @@ router.use('/session', sessionRouter);
 
 router.use('/users', usersRouter);
 router.use('/scotch', scotchRouter)
+router.use('/speakeasy', speakeasyRouter)
 // router.get("/hello/world", function (req, res) {
 //   res.cookie("XSRF-TOKEN", req.csrfToken());
 //   res.send("Hello World!");
