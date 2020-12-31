@@ -8,6 +8,7 @@ import Navigation from "./components/Navigation";
 import Homepage from "./components/Home"
 import Spirits from "./components/Spirits"
 import Speakeasy from "./components/Speakeasy"
+import SingleSpirit from "./components/SingleSpirit"
 
 function App() {
   const dispatch = useDispatch();
@@ -34,11 +35,14 @@ const handleClick = () => {
             <Route path="/signup">
               <SignupFormPage />
             </Route>
-            <Route path="/scotch">
+            <Route path="/scotch" exact>
               <Spirits />
             </Route>
             <Route path="/speakeasy">
               <Speakeasy />
+            </Route>
+            <Route path="/scotch/:id">
+              <SingleSpirit />
             </Route>
           </Switch>
           <button type="submit" onClick={handleClick}>

@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
 import "./Spirit.css"
+import scotchImage from "./Cocktail-14-512.jpg"
+import { Switch, Route } from "react-router-dom";
+import SingleSpirit from "../SingleSpirit";
 
 function Spirits() {
   const [query, setQuery] = useState("");
@@ -26,7 +29,7 @@ function Spirits() {
     <>
       <form onSubmit={submitForm}>
         <input
-          placeholder="🍷 Find a spirit"
+          placeholder="🥃 Find a spirit"
           value={query} 
           onChange={(e) => setQuery(e.target.value)}
         ></input>
@@ -49,13 +52,14 @@ function Spirits() {
               <div className="spirit-country">Country: {country}</div>
               <div className="spirit-state">Region: {region}</div>
               <div className="spirit-style">Style: {spiritStyle}</div>
-              <a className="spirit-scotchUrl" href={scotchUrl}>
+              <a className="spirit-scotchUrl" href={`scotch/${id}`}>
                 <img
                   className="scotch-photo"
-                  src={scotchUrl}
+                  src={scotchUrl ? scotchUrl : scotchImage}
                   alt={`"${scotchName}"`}
                 ></img>
               </a>
+              
             </div>
           )}  }
         

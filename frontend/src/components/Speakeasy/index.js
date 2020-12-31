@@ -3,7 +3,7 @@ import "./Speakeasy.css";
 import {useState, useEffect} from "react";
 
 function Speakeasy() {
-    const [posts, setPosts] =useState([]);
+    const [posts, setPosts] = useState([]);
     
     useEffect(async() => {
         const res = await fetch('/api/speakeasy')
@@ -18,7 +18,7 @@ return (
     {posts.map((post)=>{
         const {User, Spirit, userRating, userReview, location, imageUrl, createdAt, id } = post;
         return (
-          <div key={id}>
+          <div class="container" key={id}>
             <h3>Alcoholic: {User.firstName}</h3>
             <h3>
               Scotch:{" "}
@@ -30,7 +30,7 @@ return (
             <h3>{userReview}</h3>
             <h3>{location}</h3>
             <h4>{createdAt}</h4>
-            <img src={imageUrl ? imageUrl : ""}></img>
+            <img class="user-image" src={imageUrl ? imageUrl : ""}></img>
           </div>
         );
     })}

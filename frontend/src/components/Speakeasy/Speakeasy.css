@@ -1,0 +1,12 @@
+.user-image{
+    width: 500px;
+    height:auto;
+}
+
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 300px;
+    padding: 20px;
+}
