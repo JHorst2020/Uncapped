@@ -9,3 +9,7 @@ html,body {
     padding: 0;
     font-family: Helvetica;
 }
+
+.app-background{
+    background: #F4F2E7;
+}

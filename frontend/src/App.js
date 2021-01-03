@@ -9,6 +9,7 @@ import Homepage from "./components/Home"
 import Spirits from "./components/Spirits"
 import Speakeasy from "./components/Speakeasy"
 import SingleSpirit from "./components/SingleSpirit"
+import UserProfilePage from "./components/UserProfilePage"
 
 function App() {
   const dispatch = useDispatch();
@@ -17,11 +18,9 @@ function App() {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
   let history = useHistory()
-const handleClick = () => {
-  history.push('/scotch')
-}
+
   return (
-    <>
+    <div className="app-background">
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <>
@@ -44,13 +43,14 @@ const handleClick = () => {
             <Route path="/scotch/:id">
               <SingleSpirit />
             </Route>
+            <Route path="/:id" exact>
+              <UserProfilePage />
+            </Route>
           </Switch>
-          <button type="submit" onClick={handleClick}>
-            Browse Scotch
-          </button>
-        </>
+          </>
+        
       )}
-    </>
+    </div>
   );
 }
 

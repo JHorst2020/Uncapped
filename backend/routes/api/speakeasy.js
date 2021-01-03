@@ -27,4 +27,29 @@ router.get(
   })
 );
 
+router.post(
+  "/",
+  asyncHandler(async (req, res) => {
+    const {
+      drink_id,
+      user_id,
+      userRating,
+      userReview,
+      location,
+      imageUrl,
+    } = req.body;
+    const newSpiritReview = await Post.newReview({
+      drink_id,
+      user_id,
+      userRating,
+      userReview,
+      location,
+      imageUrl,
+    });
+    return res.json({ newSpiritReview });
+  })
+);
+
+
+
 module.exports = router;

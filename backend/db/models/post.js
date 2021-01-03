@@ -14,5 +14,13 @@ module.exports = (sequelize, DataTypes) => {
     Post.belongsTo(models.Spirit, {foreignKey:"drink_id"})
     Post.hasMany(models.Comment, {foreignKey:"post_id"})
   };
+
+  Post.newReview = async function ({drink_id, user_id, userRating, userReview, location, imageUrl}) {
+    const review = await Post.create({
+      drink_id, user_id, userRating, userReview, location, imageUrl
+    });
+    return 
+  }
+
   return Post;
 };

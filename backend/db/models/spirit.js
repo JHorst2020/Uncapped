@@ -14,5 +14,26 @@ module.exports = (sequelize, DataTypes) => {
     // associations can be defined here
     Spirit.hasMany(models.Post, {foreignKey:"drink_id"})
   };
+
+  Spirit.newSpirit = async function ({brandName, scotchName,country,region,abv,spiritStyle,scotchUrl}){
+    const spirit = await Spirit.create({brandName,scotchName,country,region,abv,spiritStyle,scotchUrl});
+    return
+  }
+
+  // db / models / spirit
+  Spirit.updateSpirit = async function ({id,brandName, scotchName,country,region,abv,spiritStyle,scotchUrl}){
+    const spirit = await Spirit.update({
+      brandName,
+      scotchName,
+      country,
+      region,
+      abv,
+      spiritStyle,
+      scotchUrl,
+    }, {where: id});
+    return 
+  }
+
+
   return Spirit;
 };

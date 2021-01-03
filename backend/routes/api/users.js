@@ -41,4 +41,16 @@ router.post(
   })
 );
 
+
+
+
+router.get(
+  "/:id",
+  asyncHandler(async (req, res) => {
+    const user = await User.findOne({
+      where: {id: req.params.id},
+    });
+    res.json(user);
+  })
+);
 module.exports = router;
