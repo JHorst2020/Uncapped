@@ -20,6 +20,18 @@ export const createReview = (submission) => async dispatch => {
     return review
 }
 
+export const deleteReview = (submission) => async dispatch => {
+    const id = submission.id
+    const data = await fetch(`/api/speakeasy/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const deleted = await data
+    return deleted
+}
+
 
 const initialState = {
     userReviews: [],

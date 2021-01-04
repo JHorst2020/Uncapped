@@ -17,6 +17,7 @@ export default function EditSingleSpirit({ scotch }) {
 
   const id = scotch.id;
 
+
   const [scotchName, setScotchName] = useState(scotch.scotchName);
   const [country, setCountry] = useState(scotch.country);
   const [region, setRegion] = useState(scotch.region);

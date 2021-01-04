@@ -30,6 +30,7 @@
     padding-left: 10px;
     border: 2px solid rgb(194, 192, 192);
     background-color: #FFFFFF;
+    
 }
 
 .div1{
@@ -64,4 +65,9 @@
     height: auto;
     border-radius: 2%;
     margin-bottom: 10px;
+}
+
+.loggedoutpage{
+    height:600px;
+    width:auto;
 }

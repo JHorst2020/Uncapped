@@ -22,7 +22,7 @@ export default function StarSlider() {
         Your Rating
       </Typography>
       <Slider
-        defaultValue={""}
+        defaultValue="1"
         getAriaValueText={valuetext}
         // aria-labelledby="discrete-slider"
         valueLabelDisplay="auto"

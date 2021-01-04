@@ -8,7 +8,15 @@ import Star3 from "../../srcpublic/3-star-review.png"
 import Star4 from "../../srcpublic/4-star-review.png"
 import Star5 from "../../srcpublic/5-star-review.png"
 import Star0 from "../../srcpublic/0-star-review.png"
-import myspace from "../../srcpublic/coolguytom.png"
+import profile1 from "../../srcpublic/profile1.png"
+import profile2 from "../../srcpublic/profile2.png"
+import profile3 from "../../srcpublic/profile3.png"
+import profile4 from "../../srcpublic/profile4.png"
+import profile5 from "../../srcpublic/profile5.png"
+import profile6 from "../../srcpublic/profile6.png"
+import DeleteButton from "../DeleteButton"
+import theLogo from "../../srcpublic/logoPicture.svg"
+
 
 
 const Home = () => {
@@ -18,6 +26,8 @@ const Home = () => {
 // console.log(loggedInUser === undefined)
     const [posts, setPosts] = useState([])
     const [loggedin, setLoggedIn] = useState("false")
+    const [postCounter, setPostCounter] = useState("")
+    
     // console.log("This is the loggedin useeffect:   ",loggedin)
       useEffect(async () => {
           if(!loggedin)return
@@ -25,8 +35,9 @@ const Home = () => {
           {setLoggedIn("true")
         const res = await fetch(`/api/speakeasy/${loggedInUser.id}`);
         const data = await res.json();
-        console.log("This is the data:   ", data);
-
+        const count = await fetch(`/api/speakeasy/${loggedInUser.id}/count`)
+        const countjson = await count.json()
+        setPostCounter(countjson)
         setPosts(data);}
       },[setLoggedIn, loggedInUser, loggedin]);
     
@@ -59,7 +70,7 @@ if (userRating === 5){starRatingPhoto = Star5}
             return (
               <div className="flexbox-item" key={id}>
                 <div className="div1">
-                  <img className="myspace" src={myspace}></img>
+                  <img className="myspace" src={profile4}></img>
                 </div>
                 <div className="div2">
                   <span>
@@ -75,30 +86,35 @@ if (userRating === 5){starRatingPhoto = Star5}
                     </Link>
                   </span>
                   <div>
-                    
-                      <img className="stars" src={starRatingPhoto}></img>
-                      
+                    <img className="stars" src={starRatingPhoto}></img>
                   </div>
-                  <p>{userReview}</p>
-                  <h4>{location}</h4>
+                  <h4>"{userReview}"</h4>
+                  <h4>
+                    <i class="fas fa-map-marker-alt" /> {location}
+                  </h4>
                   <h6>{createdAt}</h6>
 
                   <img
                     className="user-images"
                     src={imageUrl ? imageUrl : ""}
                   ></img>
+                    <DeleteButton post={post} />
                 </div>
                 <div className="div3">
                   <img className="scotch-image" src={Spirit.scotchUrl}></img>
                 </div>
               </div>
             );
-          })}
+          })
+        }
       </div>
-      <div className="user-profile-info">
-        <h3>Hello</h3>
+     {loggedInUser &&  <div className="user-profile-info">
+        <div><b> Posts </b> <div>
+          {postCounter}</div></div>
 
       </div>
+    }
+    {!loggedInUser && <img src={theLogo} className="loggedoutpage"></img>}
       </div>
     );
 }

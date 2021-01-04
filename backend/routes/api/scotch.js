@@ -9,7 +9,9 @@ const router = express.Router();
 router.get(
   "/",
   asyncHandler(async (req, res) => {
-    const spirits = await Spirit.findAll();
+    const spirits = await Spirit.findAll({
+      order: [["id", "DESC"]]
+    });
     res.json(spirits);
   })
 );
@@ -29,7 +31,6 @@ router.get("/:id", async (req, res) => {
 // scotch api
 
 router.put("/update/:id",asyncHandler(async function (req, res){
-  console.log(req.body)
   const {
     id,
     scotchName,
@@ -38,16 +39,14 @@ router.put("/update/:id",asyncHandler(async function (req, res){
     spiritSyle,
     scotchUrl,
   } = req.body;
-  const updatedScotch = await Spirit.update({
-    id,
-    scotchName,
+  const updatedScotch = await Spirit.update(
+    {scotchName,
     country,
     region,
     spiritSyle,
-    scotchUrl,
-  }, {where: id });
-
-  return res.json(updatedScotch)
+    scotchUrl}, {where: {id}, returning:true, plain:true}
+  );
+  res.json(updatedScotch)
 }))
 
 router.post("/", asyncHandler(async (req, res) => {

@@ -27,6 +27,22 @@ router.get(
   })
 );
 
+router.get("/:id/count", asyncHandler(async (req, res)=> {
+  const {count} = await Post.findAndCountAll({
+    where: { user_id: req.params.id },
+  });
+  res.json(count)
+}))
+
+router.get('/scotch/:id', asyncHandler(async (req, res)=> {
+  const posts = await Post.findAll({
+    where: { drink_id: req.params.id },
+    include: [User, Spirit],
+    order: [["id", "DESC"]],
+  });
+  res.json(posts);
+}))
+
 router.post(
   "/",
   asyncHandler(async (req, res) => {
@@ -50,6 +66,16 @@ router.post(
   })
 );
 
+router.delete(
+  "/:id",
+  asyncHandler(async (req,res) => {
+    const deletePost = await Post.destroy({
+      where: {
+        id: req.params.id
+      }
+    })
+  })
+)
 
 
 module.exports = router;

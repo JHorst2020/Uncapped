@@ -10,6 +10,7 @@ import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import StarSlider from "./../StarSlider"
 import {createReview} from "../../store/userReview"
+import Slider from '@material-ui/core/Slider';
 
 export default function AddReview({scotch}) {
   const dispatch = useDispatch();
@@ -21,11 +22,14 @@ export default function AddReview({scotch}) {
  
 
   const [open, setOpen] = useState(false);
+  const [userRating, setUserRating] = useState("")
+  // const [userStar, setUserStar] = useState("")
   const [userReview, setUserReview] = useState("");
   const [location, setLocation] = useState("");
   const [imageUrl, setImageUrl] = useState("");
 
-  console.log(scotch)
+  // console.log(userStar)
+  console.log(location)
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -37,16 +41,17 @@ export default function AddReview({scotch}) {
   const handleSubmit = async(e)=> {
       e.preventDefault()
       setOpen(false)
-
+    // let userRating = parseInt(userStar)
       const payload = {
         drink_id,
         user_id,
         userReview,
+        userRating,
         location,
       }
       let newReview = await dispatch(createReview(payload))
       if(newReview){
-        history.push('/')
+        history.push(`/scotch/${drink_id}`)
       }
       
   }
@@ -66,7 +71,16 @@ export default function AddReview({scotch}) {
       >
         <DialogTitle id="form-dialog-title">{scotch.scotchName}</DialogTitle>
         <DialogContent>
-          <StarSlider />
+          <TextField 
+          margin="dense"
+          id="starRating"
+          label="How Many Stars?"
+          value={userRating}
+          onChange={(e) => setUserRating(e.target.value)}
+          type="number"
+          min="0"
+          max="5"
+          />
           <TextField
             margin="dense"
             id="name"

@@ -1,12 +1,26 @@
 'use strict';
+
+const { Validator } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   const Post = sequelize.define('Post', {
     drink_id: DataTypes.INTEGER,
     user_id: DataTypes.INTEGER,
-    userRating: DataTypes.INTEGER,
+    userRating: {
+      type: DataTypes.INTEGER,
+    validate: {
+      min: 0,
+      max: 5,
+      isNumeric: true,
+    }},
     userReview: DataTypes.STRING,
     location: DataTypes.STRING,
-    imageUrl: DataTypes.STRING
+    imageUrl: {
+      type: DataTypes.STRING,
+      validate: {
+        isUrl: true,
+        
+      }
+    }
   }, {});
   Post.associate = function(models) {
     // associations can be defined here

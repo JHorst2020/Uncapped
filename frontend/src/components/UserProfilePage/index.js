@@ -7,7 +7,12 @@ import Star3 from "../../srcpublic/3-star-review.png";
 import Star4 from "../../srcpublic/4-star-review.png";
 import Star5 from "../../srcpublic/5-star-review.png";
 import Star0 from "../../srcpublic/0-star-review.png";
-import myspace from "../../srcpublic/coolguytom.png";
+import profile1 from "../../srcpublic/profile1.png";
+import profile2 from "../../srcpublic/profile2.png";
+import profile3 from "../../srcpublic/profile3.png";
+import profile4 from "../../srcpublic/profile4.png";
+import profile5 from "../../srcpublic/profile5.png";
+import profile6 from "../../srcpublic/profile6.png";
 
 const UserProfilePage = () => {
   const loggedInUser = useSelector((state) => {
@@ -19,11 +24,16 @@ const UserProfilePage = () => {
   const [posts, setPosts] = useState([]);
   const [loggedin, setLoggedIn] = useState("false");
   const [selectedUser, setSelectedUser] = useState([])
+  const [postCounter, setPostCounter] = useState("");
+
   useEffect(async () => {
     const res = await fetch(`/api/speakeasy/${id}`);
     const selectedUser = await fetch(`/api/users/${id}`)
     const data = await res.json();
     const data2 = selectedUser.json()
+    const count = await fetch(`/api/speakeasy/${loggedInUser.id}/count`);
+    const countjson = await count.json();
+    setPostCounter(countjson);
     setPosts(data);
     setSelectedUser(data2)
     console.log("This is the loggedin useeffect:   ",data2)
@@ -69,7 +79,7 @@ const UserProfilePage = () => {
             return (
               <div className="flexbox-item" key={id}>
                 <div className="div1">
-                  <img className="myspace" src={myspace}></img>
+                  <img className="myspace" src={profile4}></img>
                 </div>
                 <div className="div2">
                   <span>
@@ -104,7 +114,10 @@ const UserProfilePage = () => {
           })}
       </div>
       <div className="user-profile-info">
-        <h3>Hello</h3>
+        <div>
+          <b>{postCounter}</b>
+          <> Posts </>
+        </div>
       </div>
     </div>
   );

@@ -1,7 +1,38 @@
 .profile-dropdown {
-  position: absolute;
+  position: sticky;
 }
 #top-nav-bar{
+  display:flex;
+  flex-direction: row;
   list-style-type: none;
-  margin-left: 5px;
+  /* margin-left: 5px; */
+}
+.navBar {
+  background-color: rgb(100%, 77%, 19%);
+  width:100%;
+  position:-webkit-sticky;
+  position: sticky;
+  top: 0px;
+
+}
+#logo{
+  display:flex;
+  align-items: center;
+  margin-left: 30px;
+
+}
+.nav-link{
+  margin-right: 15px;
+
+}
+.logo-pic{
+  height:50px;
+  width:auto;
+}
+#logoName{
+  font-size: xx-large;
+  font-weight: bolder;
+  color: white;
+  margin-left:20px;
+
 }

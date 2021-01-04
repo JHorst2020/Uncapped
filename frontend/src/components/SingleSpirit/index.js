@@ -3,27 +3,27 @@ import {useParams, Link} from "react-router-dom"
 import AddReview from "../AddReview"
 import scotchImage from "./../Spirits/Cocktail-14-512.jpg"
 import EditSingleSpirit from "./../EditSingleSpirit"
+import SingleSpiritPost from "./SingleSpiritPosts"
 import "./SingleSpirit.css"
 
 function SingleSpirit() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     let {id} = useParams()
     const [spirit, setSpirit] = useState([])
-    // console.log("this is scotchID:   ", id)
+    // console.log("this is :   ", id)
     useEffect(async()=>{
         const res = await fetch(`/api/scotch/${id}`)
         const data = await res.json()
+        console.log(data)
         setSpirit(data)
     },[])
 
     return (
         <div className="single-spirit-container">
-            <h1>Hello!</h1>
-            
             {spirit.map((drink)=> {
                 const {id, scotchName, country, region, spiritStyle, scotchUrl} = drink;
                 return (
-                  <div className="spirit-info-container container" key={id}>
+                  <div className="spirit-info-container container-for-scotch" key={id}>
                     <h4 className="spirit-scotchName">{scotchName}</h4>
                     <div className="spirit-country">Country: {country}</div>
                     <div className="spirit-state">Region: {region}</div>
@@ -43,6 +43,7 @@ function SingleSpirit() {
                   </div>
                 );
             })}
+            <SingleSpiritPost scotchId={id} />
         </div>
     )
 

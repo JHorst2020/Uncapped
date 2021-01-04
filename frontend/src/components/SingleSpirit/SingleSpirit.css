@@ -11,5 +11,18 @@
 
 .single-spirit-container{
     margin-left:20px;
+    display: flex;
 }
 
+.container-for-scotch{
+    height:fit-content;
+    padding: 20px; 
+}
+
+.no-posts-available{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 300px;
+    padding: 20px;
+}

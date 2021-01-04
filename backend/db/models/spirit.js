@@ -21,17 +21,17 @@ module.exports = (sequelize, DataTypes) => {
   }
 
   // db / models / spirit
-  Spirit.updateSpirit = async function ({id,brandName, scotchName,country,region,abv,spiritStyle,scotchUrl}){
-    const spirit = await Spirit.update({
-      brandName,
+  Spirit.updateThisSpirit = async function ({id, brandName, scotchName,country,region,abv,spiritStyle,scotchUrl}){
+    const [_unused1, spirit] = await Spirit.update(
+      {brandName,
       scotchName,
       country,
       region,
       abv,
       spiritStyle,
-      scotchUrl,
-    }, {where: id});
-    return 
+      scotchUrl}
+    , {where: {id}, returning:true, plain:true});
+    return spirit
   }
 
 
