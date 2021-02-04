@@ -115,3 +115,7 @@ return (
 }
 
 export default SingleSpiritPost
+
+
+
+

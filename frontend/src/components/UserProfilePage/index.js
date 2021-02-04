@@ -97,8 +97,10 @@ const UserProfilePage = () => {
                   <div>
                     <img className="stars" src={starRatingPhoto}></img>
                   </div>
-                  <p>{userReview}</p>
-                  <h4>{location}</h4>
+                  <h4>"{userReview}"</h4>
+                  <h4>
+                    <i class="fas fa-map-marker-alt" /> {location}
+                  </h4>
                   <h6>{createdAt}</h6>
 
                   <img
@@ -113,12 +115,12 @@ const UserProfilePage = () => {
             );
           })}
       </div>
-      <div className="user-profile-info">
+      {/* <div className="user-profile-info">
         <div>
           <b>{postCounter}</b>
           <> Posts </>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

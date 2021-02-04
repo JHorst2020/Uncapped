@@ -15,7 +15,7 @@ export default function DeleteButton(post){
 const {id} = post.post
 
 
-console.log(post.post.id)
+// console.log(post.post.id)
    const handleSubmit = async (e) => {
      e.preventDefault();
 
@@ -27,7 +27,7 @@ console.log(post.post.id)
        history.push("/");
      }
    };
-   if(loggedInUser === post.post.user_id){
+   if(loggedInUser && loggedInUser === post.post.user_id){
        return (
          <div>
            <Button variant="contained" color="secondary" onClick={handleSubmit} style={{"margin-bottom":"10px"}}>

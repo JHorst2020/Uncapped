@@ -5,7 +5,7 @@ const { Spirit, Post } = require("../../db/models");
 
 const router = express.Router();
 
- 
+  
 router.get(
   "/",
   asyncHandler(async (req, res) => {
