@@ -18,7 +18,7 @@ export const updateSpirit = (submission) => async dispatch => {
     const data = await fetch(`/api/scotch/update/${id}`, {
         method: 'PUT',
         headers: {
-            'Content-type': 'application/json'
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify(submission),
     });
