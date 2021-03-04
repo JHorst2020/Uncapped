@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
@@ -17,7 +17,9 @@ export default function EditSingleSpirit({ scotch }) {
 
   const id = scotch.id;
 
-
+ const user_id = useSelector((state) => {
+   return state.session.user?.id;
+ });
   const [scotchName, setScotchName] = useState(scotch.scotchName);
   const [country, setCountry] = useState(scotch.country);
   const [region, setRegion] = useState(scotch.region);
@@ -52,7 +54,11 @@ export default function EditSingleSpirit({ scotch }) {
       history.push("/");
     }
   };
-
+if (user_id === undefined ) {
+  return (
+    <>
+    </>)
+} else {
   return (
     <div>
       <Button variant="outlined" color="primary" onClick={handleClickOpen}>
@@ -127,4 +133,5 @@ export default function EditSingleSpirit({ scotch }) {
       </Dialog>
     </div>
   );
+}
 }

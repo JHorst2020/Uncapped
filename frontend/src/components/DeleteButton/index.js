@@ -10,9 +10,9 @@ export default function DeleteButton(post){
     const dispatch = useDispatch();
     const history = useHistory()
     const loggedInUser = useSelector((state) => {
-      return state.session.user.id;
+      return state.session.user?.id;
     });
-const {id} = post.post
+const {id} = post?.post
 
 
 // console.log(post.post.id)
@@ -27,7 +27,7 @@ const {id} = post.post
        history.push("/");
      }
    };
-   if(loggedInUser && loggedInUser === post.post.user_id){
+   if(loggedInUser !== undefined && loggedInUser === post.post.user_id){
        return (
          <div>
            <Button variant="contained" color="secondary" onClick={handleSubmit} style={{"margin-bottom":"10px"}}>

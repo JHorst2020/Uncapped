@@ -5,6 +5,7 @@ import ProfileButton from "./ProfileButton";
 import LoginFormModal from "../LoginFormModal";
 import "./Navigation.css";
 import logoPic from "./scotchlogo.svg"
+import SignupModal from '../SignupFormModal'
 
 function Navigation({ isLoaded }) {
   const sessionUser = useSelector((state) => state.session.user);
@@ -14,8 +15,9 @@ function Navigation({ isLoaded }) {
     sessionLinks = <span className="buffer" > <ProfileButton user={sessionUser}/></span>;
   } else {
     sessionLinks = (
-      <div className="nav-link">
+      <div className="nav-link" style={{display:'flex', flexDirection:"row"}}>
         <LoginFormModal />
+        <SignupModal />
       </div>
     );
   }
@@ -43,6 +45,8 @@ function Navigation({ isLoaded }) {
           <NavLink to="/speakeasy" style={{ textDecoration: "none", color: "white", "font-weight": "bold"}}>
             The Speakeasy
           </NavLink>
+        </li>
+        <li class="nav-link" style={{display:"flex", flexDirection:"column"}}>
           {isLoaded && sessionLinks}
         </li>
       </ul>

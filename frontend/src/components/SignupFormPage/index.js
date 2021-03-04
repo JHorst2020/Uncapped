@@ -28,14 +28,15 @@ function SignupFormPage() {
   };
 
   return (
-    <>
+    <div style={{display:"flex", flexDirection:"column"}}>
       <h1>Sign Up</h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} style={{display:"flex", flexDirection:"column"}}>
         <ul>
           {errors.map((error, idx) => <li key={idx}>{error}</li>)}
         </ul>
-        <label>
-          Email
+        <label style={{margin:"5px"}}>
+          Email:
+          <span> </span>
           <input
             type="text"
             value={email}
@@ -43,8 +44,9 @@ function SignupFormPage() {
             required
           />
         </label>
-        <label>
-          Username
+        <label style={{margin:"5px"}}>
+          Username:
+          <span> </span>
           <input
             type="text"
             value={username}
@@ -52,8 +54,9 @@ function SignupFormPage() {
             required
           />
         </label>
-        <label>
-          Password
+        <label style={{margin:"5px"}}>
+          Password:
+          <span> </span>
           <input
             type="password"
             value={password}
@@ -61,8 +64,9 @@ function SignupFormPage() {
             required
           />
         </label>
-        <label>
-          Confirm Password
+        <label style={{margin:"5px"}}>
+          Confirm Password:
+          <span> </span>
           <input
             type="password"
             value={confirmPassword}
@@ -72,7 +76,7 @@ function SignupFormPage() {
         </label>
         <button type="submit">Sign Up</button>
       </form>
-    </>
+    </div>
   );
 }
 

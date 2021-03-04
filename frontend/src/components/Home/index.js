@@ -29,9 +29,9 @@ const Home = () => {
     const [postCounter, setPostCounter] = useState("")
     
     // console.log("This is the loggedin useeffect:   ",loggedin)
-      useEffect(async () => {
+      useEffect(() => async () => {
           if(!loggedin)return
-          if(loggedInUser != undefined)
+          if(loggedInUser !== undefined && loggedInUser !== null)
           {setLoggedIn("true")
         const res = await fetch(`/api/speakeasy/${loggedInUser.id}`);
         const data = await res.json();

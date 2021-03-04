@@ -29,7 +29,7 @@ console.log("This is the sessionActions     ",sessionActions)
         <ul>
           {errors.map((error, idx) => (
             <li key={idx}>{error}</li>
-          ))}
+            ))}
         </ul>
         <label>
           Username or Email
@@ -49,6 +49,7 @@ console.log("This is the sessionActions     ",sessionActions)
             required
           />
         </label>
+            <button >Demo Login</button>
         <button type="submit">Log In</button>
       </form>
     </>

@@ -19,17 +19,31 @@ function LoginForm() {
     );
   };
 
+  const handleDemo = (e) => {
+    e.preventDefault();
+    setErrors([]);
+    return dispatch(sessionActions.login({credential:"demo-user", password:"password"})).catch(
+      (res) => {
+        if (res.data && res.data.errors) setErrors(res.data.errors)
+      }
+    )
+  }
+
   return (
     <>
-      <h1>Log In</h1>
-      <form onSubmit={handleSubmit}>
+      <h1>Login</h1>
+      <form
+        onSubmit={handleSubmit}
+        style={{ display: "flex", flexDirection: "column" }}
+      >
         <ul>
           {errors.map((error, idx) => (
             <li key={idx}>{error}</li>
           ))}
         </ul>
-        <label>
-          Username or Email
+        <label style={{ margin: "5px" }}>
+          Username or Email:
+          <span> </span>
           <input
             type="text"
             value={credential}
@@ -37,8 +51,9 @@ function LoginForm() {
             required
           />
         </label>
-        <label>
-          Password
+        <label style={{ margin: "5px" }}>
+          Password:
+          <span> </span>
           <input
             type="password"
             value={password}
@@ -46,7 +61,12 @@ function LoginForm() {
             required
           />
         </label>
-        <button type="submit">Log In</button>
+        <button type="submit" style={{ alignSelf: "center", margin:"5px" }}>
+          Login
+        </button>
+        <button onClick={(e) => handleDemo(e)} style={{ alignSelf: "center", margin:"5px" }}>
+          Demo Login
+        </button>
       </form>
     </>
   );
