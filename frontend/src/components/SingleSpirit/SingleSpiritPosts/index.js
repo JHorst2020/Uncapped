@@ -18,8 +18,7 @@ import DeleteButton from "../../../components/DeleteButton"
 function SingleSpiritPost({scotchId}) {
   
     const [posts, setPosts] = useState([]);
-    console.log(scotchId)
-    useEffect(async() => {
+    useEffect(()=>async() => {
         const res = await fetch(`/api/speakeasy/scotch/${scotchId}`)
         const data = await res.json()
         setPosts(data)
@@ -41,7 +40,6 @@ return (
       <h4>User Reviews</h4>
       
       {posts.map((post) => {
-        console.log(post)
         const {
           User,
           Spirit,
@@ -75,7 +73,7 @@ return (
         return (
           <div className="flexbox-item" key={id}>
             <div className="div1">
-              <img className="myspace" src={profile4}></img>
+              <img className="myspace" src={profile4} alt=""></img>
             </div>
             <div className="div2">
               <span>
@@ -91,7 +89,7 @@ return (
                 </Link>
               </span>
               <div>
-                <img className="stars" src={starRatingPhoto}></img>
+                <img className="stars" src={starRatingPhoto} alt=""></img>
               </div>
               <h4>"{userReview}"</h4>
               <h4>
@@ -99,11 +97,11 @@ return (
               </h4>
               <h6>{createdAt}</h6>
 
-              <img className="user-images" src={imageUrl ? imageUrl : ""}></img>
+              <img className="user-images" src={imageUrl ? imageUrl : ""} alt=""></img>
             <DeleteButton post={post} />
             </div>
             <div className="div3">
-              <img className="scotch-image" src={Spirit.scotchUrl}></img>
+              <img className="scotch-image" src={Spirit.scotchUrl} alt=""></img>
             </div>
           </div>
         );

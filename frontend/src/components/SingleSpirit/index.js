@@ -7,14 +7,11 @@ import SingleSpiritPost from "./SingleSpiritPosts"
 import "./SingleSpirit.css"
 
 function SingleSpirit() {
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     let {id} = useParams()
     const [spirit, setSpirit] = useState([])
-    // console.log("this is :   ", id)
-    useEffect(async()=>{
+    useEffect(()=>async()=>{
         const res = await fetch(`/api/scotch/${id}`)
         const data = await res.json()
-        console.log(data)
         setSpirit(data)
     },[])
 

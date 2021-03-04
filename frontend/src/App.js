@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Route, Switch, useHistory } from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
-// import LoginFormPage from "./components/LoginFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import Homepage from "./components/Home"
@@ -17,7 +16,6 @@ function App() {
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
-  let history = useHistory()
 
   return (
     <div className="app-background">
@@ -25,9 +23,7 @@ function App() {
       {isLoaded && (
         <>
           <Switch>
-            {/* <Route path="/login" >
-            <LoginFormPage />
-          </Route> */}
+            
             <Route path="/" exact>
               <Homepage />
             </Route>

@@ -16,7 +16,6 @@ export default function EditSingleSpirit({ scotch }) {
   const [open, setOpen] = useState(false);
 
   const id = scotch.id;
-
  const user_id = useSelector((state) => {
    return state.session.user?.id;
  });
@@ -33,7 +32,6 @@ export default function EditSingleSpirit({ scotch }) {
   const handleClose = () => {
     setOpen(false);
   };
-
 
   // Frontend --> components/EditSingleSpirit
   const handleSubmit = async (e) => {

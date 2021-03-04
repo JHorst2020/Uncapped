@@ -9,7 +9,6 @@ function Spirits() {
   const [query, setQuery] = useState("");
   //eventually set state to redux
   const [spirits, setSpirits] = useState([]);
-  console.log(spirits)
   useEffect(async() => {
     
       const res = await fetch(`/api/scotch`);
@@ -23,7 +22,6 @@ function Spirits() {
       const data = await res.json();
       setSpirits(data);
     } catch (e) {
-      console.log(e);
     }
   };
   return (
@@ -48,11 +46,8 @@ function Spirits() {
             scotchUrl,
           } = spirit;
           let scotchNameMatches = scotchName.includes(query.toString());
-          // console.log("this is scotchNameMatches:   ", scotchNameMatches, "this is scotch name:   ", scotchName)
           let regionMatches = region === query;
-          // let scotchUrlMatches = scotchUrl.includes(query.toString());
           if (scotchNameMatches || regionMatches || query === "") {
-            // console.log(index)
             return (
               <div className="spirit-info-container container" key={id}>
                 <div className="scotch-div-1"></div>

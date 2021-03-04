@@ -7,26 +7,24 @@ import Star3 from "../../srcpublic/3-star-review.png";
 import Star4 from "../../srcpublic/4-star-review.png";
 import Star5 from "../../srcpublic/5-star-review.png";
 import Star0 from "../../srcpublic/0-star-review.png";
-import profile1 from "../../srcpublic/profile1.png";
-import profile2 from "../../srcpublic/profile2.png";
-import profile3 from "../../srcpublic/profile3.png";
+// import profile1 from "../../srcpublic/profile1.png";
+// import profile2 from "../../srcpublic/profile2.png";
+// import profile3 from "../../srcpublic/profile3.png";
 import profile4 from "../../srcpublic/profile4.png";
-import profile5 from "../../srcpublic/profile5.png";
-import profile6 from "../../srcpublic/profile6.png";
+// import profile5 from "../../srcpublic/profile5.png";
+// import profile6 from "../../srcpublic/profile6.png";
 
 const UserProfilePage = () => {
   const loggedInUser = useSelector((state) => {
     return state.session.user;
   });
   let {id} = useParams()
-  console.log(id)
-  // console.log(loggedInUser === undefined)
   const [posts, setPosts] = useState([]);
   const [loggedin, setLoggedIn] = useState("false");
   const [selectedUser, setSelectedUser] = useState([])
   const [postCounter, setPostCounter] = useState("");
 
-  useEffect(async () => {
+  useEffect(()=>async () => {
     const res = await fetch(`/api/speakeasy/${id}`);
     const selectedUser = await fetch(`/api/users/${id}`)
     const data = await res.json();
@@ -36,7 +34,6 @@ const UserProfilePage = () => {
     setPostCounter(countjson);
     setPosts(data);
     setSelectedUser(data2)
-    console.log("This is the loggedin useeffect:   ",data2)
   }, [setLoggedIn, loggedInUser, loggedin]);
 
   
@@ -79,7 +76,7 @@ const UserProfilePage = () => {
             return (
               <div className="flexbox-item" key={id}>
                 <div className="div1">
-                  <img className="myspace" src={profile4}></img>
+                  <img className="myspace" src={profile4} alt=""></img>
                 </div>
                 <div className="div2">
                   <span>
@@ -95,7 +92,7 @@ const UserProfilePage = () => {
                     </Link>
                   </span>
                   <div>
-                    <img className="stars" src={starRatingPhoto}></img>
+                    <img className="stars" src={starRatingPhoto} alt=""></img>
                   </div>
                   <h4>"{userReview}"</h4>
                   <h4>
@@ -105,11 +102,11 @@ const UserProfilePage = () => {
 
                   <img
                     className="user-images"
-                    src={imageUrl ? imageUrl : ""}
+                    src={imageUrl ? imageUrl : ""} alt=""
                   ></img>
                 </div>
                 <div className="div3">
-                  <img className="scotch-image" src={Spirit.scotchUrl}></img>
+                  <img className="scotch-image" src={Spirit.scotchUrl} alt=""></img>
                 </div>
               </div>
             );

@@ -2,9 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import Button from "@material-ui/core/Button";
-
 import { deleteReview } from "../../store/userReview";
-
 
 export default function DeleteButton(post){
     const dispatch = useDispatch();
@@ -14,8 +12,6 @@ export default function DeleteButton(post){
     });
 const {id} = post?.post
 
-
-// console.log(post.post.id)
    const handleSubmit = async (e) => {
      e.preventDefault();
 

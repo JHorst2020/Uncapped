@@ -8,28 +8,24 @@ import Star3 from "../../srcpublic/3-star-review.png"
 import Star4 from "../../srcpublic/4-star-review.png"
 import Star5 from "../../srcpublic/5-star-review.png"
 import Star0 from "../../srcpublic/0-star-review.png"
-import profile1 from "../../srcpublic/profile1.png"
-import profile2 from "../../srcpublic/profile2.png"
-import profile3 from "../../srcpublic/profile3.png"
+// import profile1 from "../../srcpublic/profile1.png"
+// import profile2 from "../../srcpublic/profile2.png"
+// import profile3 from "../../srcpublic/profile3.png"
 import profile4 from "../../srcpublic/profile4.png"
-import profile5 from "../../srcpublic/profile5.png"
-import profile6 from "../../srcpublic/profile6.png"
+// import profile5 from "../../srcpublic/profile5.png"
+// import profile6 from "../../srcpublic/profile6.png"
 import DeleteButton from "../DeleteButton"
 import theLogo from "../../srcpublic/logoPicture.svg"
-
-
 
 const Home = () => {
     const loggedInUser = useSelector(state => {
         return state.session.user;
     } )
-// console.log(loggedInUser === undefined)
     const [posts, setPosts] = useState([])
     const [loggedin, setLoggedIn] = useState("false")
     const [postCounter, setPostCounter] = useState("")
     
-    // console.log("This is the loggedin useeffect:   ",loggedin)
-      useEffect(() => async () => {
+      useEffect(async () => {
           if(!loggedin)return
           if(loggedInUser !== undefined && loggedInUser !== null)
           {setLoggedIn("true")
@@ -96,12 +92,12 @@ if (userRating === 5){starRatingPhoto = Star5}
 
                   <img
                     className="user-images"
-                    src={imageUrl ? imageUrl : ""}
+                    src={imageUrl ? imageUrl : ""} alt=""
                   ></img>
                     <DeleteButton post={post} />
                 </div>
                 <div className="div3">
-                  <img className="scotch-image" src={Spirit.scotchUrl}></img>
+                  <img className="scotch-image" src={Spirit.scotchUrl} alt=""></img>
                 </div>
               </div>
             );
@@ -114,7 +110,7 @@ if (userRating === 5){starRatingPhoto = Star5}
 
       </div>
     }
-    {!loggedInUser && <img src={theLogo} className="loggedoutpage"></img>}
+    {!loggedInUser && <img src={theLogo} className="loggedoutpage" alt=""></img>}
       </div>
     );
 }

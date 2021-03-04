@@ -7,13 +7,12 @@ import Star3 from "../../srcpublic/3-star-review.png";
 import Star4 from "../../srcpublic/4-star-review.png";
 import Star5 from "../../srcpublic/5-star-review.png";
 import Star0 from "../../srcpublic/0-star-review.png";
-import profile1 from "../../srcpublic/profile1.png";
-import profile2 from "../../srcpublic/profile2.png";
-import profile3 from "../../srcpublic/profile3.png";
+// import profile1 from "../../srcpublic/profile1.png";
+// import profile2 from "../../srcpublic/profile2.png";
+// import profile3 from "../../srcpublic/profile3.png";
 import profile4 from "../../srcpublic/profile4.png";
-import profile5 from "../../srcpublic/profile5.png";
-import profile6 from "../../srcpublic/profile6.png";
-// import DeleteButton from "../DeleteButton"
+// import profile5 from "../../srcpublic/profile5.png";
+// import profile6 from "../../srcpublic/profile6.png";
 
 function Speakeasy() {
     const [posts, setPosts] = useState([]);
@@ -63,7 +62,7 @@ return (
         return (
           <div className="flexbox-item" key={id}>
             <div className="div1">
-              <img className="myspace" src={profile4}></img>
+              <img className="myspace" src={profile4} alt=""></img>
             </div>
             <div className="div2">
               <span>
@@ -79,7 +78,7 @@ return (
                 </Link>
               </span>
               <div>
-                <img className="stars" src={starRatingPhoto}></img>
+                <img className="stars" src={starRatingPhoto} alt=""></img>
               </div>
               <h4>"{userReview}"</h4>
               <h4>
@@ -87,11 +86,10 @@ return (
               </h4>
               <h6>{createdAt}</h6>
 
-              <img className="user-images" src={imageUrl ? imageUrl : ""}></img>
+              <img className="user-images" src={imageUrl ? imageUrl : ""} alt=""></img>
             </div>
             <div className="div3">
-              <img className="scotch-image" src={Spirit.scotchUrl}></img>
-              {/* <DeleteButton post={post} /> */}
+              <img className="scotch-image" src={Spirit.scotchUrl} alt=""></img>
             </div>
           </div>
         );

@@ -40,11 +40,9 @@ router.get('/restore-user', restoreUser, (req, res) => {
 
 router.post('/test', function (req, res) {
   res.json({ requestBody: req.body });
-  console.log("routes/api/index.js    testtesttest")
 });
 router.get("/test", function (req, res) {
   res.json({ requestBody: req.body });
-  console.log("routes/api/index.js    testtesttest");
 });
 
 router.use('/session', sessionRouter);

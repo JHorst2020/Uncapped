@@ -16,16 +16,12 @@ export default function CreateNewScotch() {
   const history = useHistory();
 
   const [open, setOpen] = useState(false);
-
-  
- 
   const [scotchName, setScotchName] = useState("");
   const [country, setCountry] = useState("");
   const [region, setRegion] = useState("");
   const [spiritStyle, setSpiritStyle] = useState("");
   const [scotchUrl, setScotchUrl] = useState("");
 
-//   console.log(scotch);
   const handleClickOpen = () => {
     setOpen(true);
   };

@@ -22,7 +22,6 @@ export default function AddReview({scotch}) {
   const [userReview, setUserReview] = useState("");
   const [location, setLocation] = useState("");
 
-  console.log(location)
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -47,15 +46,11 @@ export default function AddReview({scotch}) {
       }
       
   }
-
- 
 if (user_id === undefined ) {
   return (
     <>
     </>)
 } else {
-  
-  
   return (
     <div>
     <Button variant="outlined" color="primary" onClick={handleClickOpen}>

@@ -9,14 +9,12 @@
 }
 .outer-div-container{
     display: flex;
-    /* margin:0px */
 }
 
 .flexbox-item{
     display: flex;
     width:600px;
     height: auto;
-    /* padding-left: 10px; */
     margin-right:25px;
     margin-left:25px;
     border-top: 2px solid rgb(194, 192, 192);
