@@ -9,7 +9,7 @@ import "./SingleSpirit.css"
 function SingleSpirit() {
     let {id} = useParams()
     const [spirit, setSpirit] = useState([])
-    useEffect(()=>async()=>{
+    useEffect(async()=>{
         const res = await fetch(`/api/scotch/${id}`)
         const data = await res.json()
         setSpirit(data)

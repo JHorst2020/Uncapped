@@ -18,7 +18,7 @@ import DeleteButton from "../../../components/DeleteButton"
 function SingleSpiritPost({scotchId}) {
   
     const [posts, setPosts] = useState([]);
-    useEffect(()=>async() => {
+    useEffect(async() => {
         const res = await fetch(`/api/speakeasy/scotch/${scotchId}`)
         const data = await res.json()
         setPosts(data)
